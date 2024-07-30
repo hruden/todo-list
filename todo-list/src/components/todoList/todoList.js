@@ -1,38 +1,37 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Todo from '../todo/todo';
 import TodoForm from '../todoForm/todoForm';
 
 function TodoList() {
-  const [todos, setTodos] = useState([
-    {
-      text: 'Learn about React',
-      isCompleted: false
-    },
-    {
-      text: 'Meet friend for lunch',
-      isCompleted: false
-    },
-    {
-      text: 'Build really cool to-do app',
-      isCompleted: false
-    }
-  ]);
+  const [todos, setTodos] = useState([]);
 
-  const addTodo = text => {
-    const newTodos = [...todos, { text }];
+  useEffect(() => {
+    const savedTodos = JSON.parse(localStorage.getItem('todos'));
+    if (savedTodos) {
+      setTodos(savedTodos);
+    }
+  }, []);
+
+  const saveTodos = (newTodos) => {
     setTodos(newTodos);
+    localStorage.setItem('todos', JSON.stringify(newTodos));
   };
 
-  const completeTodo = index => {
+  const addTodo = (text) => {
+    const newTodos = [...todos, { text, isCompleted: false }];
+    saveTodos(newTodos);
+  };
+
+  const completeTodo = (index) => {
     const newTodos = [...todos];
     newTodos[index].isCompleted = true;
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
-  const removeTodo = index => {
+  const removeTodo = (index) => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
-    setTodos(newTodos);
+    saveTodos(newTodos);
   };
 
   return (
