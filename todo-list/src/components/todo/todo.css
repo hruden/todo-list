@@ -10,7 +10,7 @@
 }
 
 .todoText{
-max-width: 200px;
+max-width: 150px;
 word-break: break-all;
 }
 
@@ -21,13 +21,16 @@ word-break: break-all;
   border-radius: 3px;
   cursor: pointer;
 }
-
-.todo button:first-child {
+.btnCheck{
   background: #58d68d;
   color: white;
 }
-
-.todo button:last-child {
+.btnClose{
   background: #e74c3c;
   color: white;
 }
+.btnPencil{
+  background: #FFB200;
+  color: white;
+}
+

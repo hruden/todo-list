@@ -1,23 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import "./todo.css";
 import { SlCheck } from "react-icons/sl";
 import { SlClose } from "react-icons/sl";
+import { SlPencil } from "react-icons/sl";
 
-function Todo({ todo, index, completeTodo, removeTodo }) {
+function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
+  const [isEditing, setIsEditing] = useState(false);
+  const [newText, setNewText] = useState(todo.text);
+
+  const handleEdit = () => {
+    setIsEditing(true);
+  };
+
+  const handleSave = () => {
+    editTodo(index, newText);
+    setIsEditing(false);
+  };
+
   return (
     <div
-      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
       className="todo"
+      style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
     >
-      <p className="todoText">{todo.text}</p>
-      <div>
-        <button onClick={() => completeTodo(index)}>
-          <SlCheck />
-        </button>
-        <button onClick={() => removeTodo(index)}>
-          <SlClose />
-        </button>
-      </div>
+      {isEditing ? (
+        <>
+          <input
+            type="text"
+            value={newText}
+            onChange={(e) => setNewText(e.target.value)}
+          />
+          <button className="btnCheck" onClick={handleSave}><SlCheck /></button>
+        </>
+      ) : (
+        <>
+          <p className="todoText">{todo.text}</p>
+          <div>
+            <button className="btnCheck" onClick={() => completeTodo(index)}>
+              <SlCheck />
+            </button>
+            <button className="btnPencil" onClick={handleEdit}>
+              <SlPencil />
+            </button>
+            <button className="btnClose" onClick={() => removeTodo(index)}>
+              <SlClose />
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

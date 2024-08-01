@@ -34,6 +34,12 @@ function TodoList() {
     saveTodos(newTodos);
   };
 
+  const editTodo = (index, newText) => {
+    const newTodos = [...todos];
+    newTodos[index].text = newText;
+    saveTodos(newTodos);
+  };
+
   return (
     <div className="todo-list">
       {todos.map((todo, index) => (
@@ -43,6 +49,7 @@ function TodoList() {
           todo={todo}
           completeTodo={completeTodo}
           removeTodo={removeTodo}
+          editTodo={editTodo}
         />
       ))}
       <TodoForm addTodo={addTodo} />
@@ -51,3 +58,4 @@ function TodoList() {
 }
 
 export default TodoList;
+
