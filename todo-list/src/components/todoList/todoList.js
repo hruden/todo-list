@@ -24,7 +24,7 @@ function TodoList() {
 
   const completeTodo = (index) => {
     const newTodos = [...todos];
-    newTodos[index].isCompleted = true;
+    newTodos[index].isCompleted = !newTodos[index].isCompleted;
     saveTodos(newTodos);
   };
 

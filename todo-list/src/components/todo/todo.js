@@ -17,6 +17,11 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
     setIsEditing(false);
   };
 
+  const handleCancel = () => {
+    setIsEditing(false);
+    setNewText(todo.text);
+  };
+
   return (
     <div
       className="todo"
@@ -30,6 +35,7 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
             onChange={(e) => setNewText(e.target.value)}
           />
           <button className="btnCheck" onClick={handleSave}><SlCheck /></button>
+          <button className="btnClose" onClick={handleCancel}><SlClose /></button>
         </>
       ) : (
         <>
@@ -38,7 +44,7 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
             <button className="btnCheck" onClick={() => completeTodo(index)}>
               <SlCheck />
             </button>
-            <button className="btnPencil" onClick={handleEdit}>
+            <button className="btnPencil" onClick={handleEdit} disabled={todo.isCompleted}>
               <SlPencil />
             </button>
             <button className="btnClose" onClick={() => removeTodo(index)}>
