@@ -1,61 +1,86 @@
-import React, { useState, useEffect } from 'react';
-import Todo from '../todo/todo';
-import TodoForm from '../todoForm/todoForm';
+import React, { useState, useEffect } from "react";
+import { nanoid } from 'nanoid';
+import { SlArrowDown } from "react-icons/sl";
+import { SlArrowUp } from "react-icons/sl";
+import "./todoList.css";
+import Todo from "../todo/todo";
+import TodoForm from "../todoForm/todoForm";
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
+  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
 
   useEffect(() => {
-    const savedTodos = JSON.parse(localStorage.getItem('todos'));
-    if (savedTodos) {
-      setTodos(savedTodos);
-    }
+    const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
+    setTodos(savedTodos);
   }, []);
 
-  const saveTodos = (newTodos) => {
-    setTodos(newTodos);
-    localStorage.setItem('todos', JSON.stringify(newTodos));
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
+  const addTodo = text => {
+    const newTodo = { id: nanoid(), text, isCompleted: false };
+    setTodos([...todos, newTodo]);
   };
 
-  const addTodo = (text) => {
-    const newTodos = [...todos, { text, isCompleted: false }];
-    saveTodos(newTodos);
+  const completeTodo = id => {
+    setTodos(todos.map(todo => 
+      todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
+    ));
   };
 
-  const completeTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos[index].isCompleted = !newTodos[index].isCompleted;
-    saveTodos(newTodos);
+  const removeTodo = id => {
+    setTodos(todos.filter(todo => todo.id !== id));
   };
 
-  const removeTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos.splice(index, 1);
-    saveTodos(newTodos);
+  const editTodo = (id, newText) => {
+    setTodos(todos.map(todo =>
+      todo.id === id ? { ...todo, text: newText } : todo
+    ));
   };
 
-  const editTodo = (index, newText) => {
-    const newTodos = [...todos];
-    newTodos[index].text = newText;
-    saveTodos(newTodos);
+  const toggleAccordion = () => {
+    setIsAccordionOpen(!isAccordionOpen);
   };
 
   return (
     <div className="todo-list">
-      {todos.map((todo, index) => (
-        <Todo
-          key={index}
-          index={index}
-          todo={todo}
-          completeTodo={completeTodo}
-          removeTodo={removeTodo}
-          editTodo={editTodo}
-        />
-      ))}
+      {todos
+        .filter((todo) => !todo.isCompleted)
+        .map((todo) => (
+          <Todo
+            key={todo.id}
+            todo={todo}
+            completeTodo={completeTodo}
+            removeTodo={removeTodo}
+            editTodo={editTodo}
+          />
+        ))}
+      <div className="accordion">
+        <p>Виконнані завдання</p>
+        <button className="accordion-btn" onClick={toggleAccordion}>
+          {isAccordionOpen ? <SlArrowUp /> : <SlArrowDown />}
+        </button>
+      </div>
+      {isAccordionOpen && (
+          <div className="accordion-content">
+            {todos
+              .filter((todo) => todo.isCompleted)
+              .map((todo) => (
+                <Todo
+                  key={todo.id}
+                  todo={todo}
+                  completeTodo={completeTodo}
+                  removeTodo={removeTodo}
+                  editTodo={editTodo}
+                />
+              ))}
+          </div>
+        )}
       <TodoForm addTodo={addTodo} />
     </div>
   );
 }
 
 export default TodoList;
-

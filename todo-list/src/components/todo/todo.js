@@ -4,7 +4,7 @@ import { SlCheck } from "react-icons/sl";
 import { SlClose } from "react-icons/sl";
 import { SlPencil } from "react-icons/sl";
 
-function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
+function Todo({ todo, completeTodo, removeTodo, editTodo }) {
   const [isEditing, setIsEditing] = useState(false);
   const [newText, setNewText] = useState(todo.text);
 
@@ -13,7 +13,7 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
   };
 
   const handleSave = () => {
-    editTodo(index, newText);
+    editTodo(todo.id, newText);
     setIsEditing(false);
   };
 
@@ -41,13 +41,13 @@ function Todo({ todo, index, completeTodo, removeTodo, editTodo }) {
         <>
           <p className="todoText">{todo.text}</p>
           <div>
-            <button className="btnCheck" onClick={() => completeTodo(index)}>
+            <button className="btnCheck" onClick={() => completeTodo(todo.id)}>
               <SlCheck />
             </button>
             <button className="btnPencil" onClick={handleEdit} disabled={todo.isCompleted}>
               <SlPencil />
             </button>
-            <button className="btnClose" onClick={() => removeTodo(index)}>
+            <button className="btnClose" onClick={() => removeTodo(todo.id)}>
               <SlClose />
             </button>
           </div>

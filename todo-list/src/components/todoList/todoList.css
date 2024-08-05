@@ -1,0 +1,18 @@
+.todo-list {
+    width: 300px;
+  }
+.accordion{
+    border: 1px solid #C0C0C0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background: #fff;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px 0 20px;
+}
+.accordion-btn{
+    border: none;
+    background-color: transparent;
+}
