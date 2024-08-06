@@ -11,31 +11,34 @@ function TodoList() {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
 
   useEffect(() => {
-    const savedTodos = JSON.parse(localStorage.getItem('todos')) || [];
-    setTodos(savedTodos);
+    const savedTodos = JSON.parse(localStorage.getItem('todos'));
+    if (savedTodos) {
+      setTodos(savedTodos);
+    }
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
+  const saveTodos = (newTodos) => {
+    setTodos(newTodos);
+    localStorage.setItem('todos', JSON.stringify(newTodos));
+  };
 
   const addTodo = text => {
     const newTodo = { id: nanoid(), text, isCompleted: false };
-    setTodos([...todos, newTodo]);
+    saveTodos([...todos, newTodo]);
   };
 
   const completeTodo = id => {
-    setTodos(todos.map(todo => 
+    saveTodos(todos.map(todo => 
       todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
     ));
   };
 
   const removeTodo = id => {
-    setTodos(todos.filter(todo => todo.id !== id));
+    saveTodos(todos.filter(todo => todo.id !== id));
   };
 
   const editTodo = (id, newText) => {
-    setTodos(todos.map(todo =>
+    saveTodos(todos.map(todo =>
       todo.id === id ? { ...todo, text: newText } : todo
     ));
   };
@@ -57,9 +60,9 @@ function TodoList() {
             editTodo={editTodo}
           />
         ))}
-      <div className="accordion">
+      <div className="accordion" onClick={toggleAccordion}>
         <p>Виконнані завдання</p>
-        <button className="accordion-btn" onClick={toggleAccordion}>
+        <button className="accordion-btn" >
           {isAccordionOpen ? <SlArrowUp /> : <SlArrowDown />}
         </button>
       </div>
