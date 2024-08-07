@@ -1,18 +1,31 @@
 .todo-list {
-    width: 300px;
-  }
-.accordion{
-    border: 1px solid #C0C0C0;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    background: #fff;
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 10px 0 20px;
+  width: 300px;
+  margin: 0 auto;
 }
-.accordion-btn{
-    border: none;
-    background-color: transparent;
+.accordion {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+.accordion-btn {
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  cursor: pointer;
+}
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.open {
+  max-height: 500px;
+  transition: max-height 0.3s ease-in;
 }
