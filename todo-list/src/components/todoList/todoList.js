@@ -8,11 +8,17 @@ import TodoForm from "../todoForm/todoForm";
 function TodoList() {
   const [todos, setTodos] = useState([]);
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const savedTodos = JSON.parse(localStorage.getItem("todos"));
     if (savedTodos) {
       setTodos(savedTodos);
+    }
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setIsDarkMode(savedTheme === "dark");
     }
   }, []);
 
@@ -48,39 +54,55 @@ function TodoList() {
     setIsAccordionOpen(!isAccordionOpen);
   };
 
+  const toggleTheme = () => {
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
+  };
+
   return (
-    <div className="todo-list">
-      {todos
-        .filter((todo) => !todo.isCompleted)
-        .map((todo) => (
-          <Todo
-            key={todo.id}
-            todo={todo}
-            completeTodo={completeTodo}
-            removeTodo={removeTodo}
-            editTodo={editTodo}
-          />
-        ))}
-      <div className="accordion" onClick={toggleAccordion}>
-        <p>Виконані завдання</p>
-        <button className="accordion-btn">
-          {isAccordionOpen ? <SlArrowUp /> : <SlArrowDown />}
+    <div className={`app ${isDarkMode ? "dark" : "light"}`}>
+      <div className="container">
+        <h1>My To-Do List</h1>
+        <button onClick={toggleTheme} className="theme-toggle-button">
+          {isDarkMode ? "Світла тема" : "Темна тема"}
         </button>
+        <div className="todo-list">
+          {todos
+            .filter((todo) => !todo.isCompleted)
+            .map((todo) => (
+              <Todo
+                key={todo.id}
+                todo={todo}
+                completeTodo={completeTodo}
+                removeTodo={removeTodo}
+                editTodo={editTodo}
+                theme={isDarkMode}
+              />
+            ))}
+          <div className="accordion" onClick={toggleAccordion}>
+            <p>Виконані завдання</p>
+            <button className="accordion-btn">
+              {isAccordionOpen ? <SlArrowUp /> : <SlArrowDown />}
+            </button>
+          </div>
+          <div className={`accordion-content ${isAccordionOpen ? "open" : ""}`}>
+            {todos
+              .filter((todo) => todo.isCompleted)
+              .map((todo) => (
+                <Todo
+                  key={todo.id}
+                  todo={todo}
+                  completeTodo={completeTodo}
+                  removeTodo={removeTodo}
+                  editTodo={editTodo}
+                  theme={isDarkMode}
+                />
+              ))}
+          </div>
+          <TodoForm addTodo={addTodo} theme={isDarkMode} />
+        </div>
       </div>
-      <div className={`accordion-content ${isAccordionOpen ? "open" : ""}`}>
-        {todos
-          .filter((todo) => todo.isCompleted)
-          .map((todo) => (
-            <Todo
-              key={todo.id}
-              todo={todo}
-              completeTodo={completeTodo}
-              removeTodo={removeTodo}
-              editTodo={editTodo}
-            />
-          ))}
-      </div>
-      <TodoForm addTodo={addTodo} />
     </div>
   );
 }

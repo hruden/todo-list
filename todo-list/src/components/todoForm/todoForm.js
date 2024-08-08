@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './todoForm.css'
 
-function TodoForm({ addTodo }) {
+function TodoForm({ addTodo, theme }) {
   const [value, setValue] = useState('');
 
   const handleSubmit = e => {
@@ -12,7 +12,7 @@ function TodoForm({ addTodo }) {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={theme ? "dark" : "light"}>
       <input
         type="text"
         className="input"

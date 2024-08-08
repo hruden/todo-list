@@ -1,3 +1,30 @@
+.app {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+.app.light {
+  background-color: white;
+  color: black;
+}
+.app.dark {
+  background-color: #121212;
+  color: white;
+}
+
+.theme-toggle-button {
+  margin: 10px 0;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-bottom: 50px;
+}
 .todo-list {
   width: 300px;
   margin: 0 auto;
@@ -12,12 +39,22 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   margin-top: 20px;
+  margin-bottom: 20px;
+}
+.app.dark .accordion{
+  background-color: #333;
 }
 .accordion-btn {
   background: none;
   border: none;
   font-size: 1.5em;
   cursor: pointer;
+  transition: color 0.3s;
+
+}
+.app.dark .accordion-btn{
+  color: white;
+  transition: color 0.3s;
 }
 .accordion-content {
   max-height: 0;

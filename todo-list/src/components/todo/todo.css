@@ -1,5 +1,4 @@
 .todo {
-  background: #fff;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 10px;
@@ -8,7 +7,16 @@
   align-items: center;
   border: 1px solid #C0C0C0;
 }
-
+.todo.dark {
+  background-color: #333;
+}
+.todo input{
+  background-color: transparent;
+  outline: none;
+}
+.todo.dark input{
+  color: white;
+}
 .todoText{
 max-width: 150px;
 word-break: break-all;
@@ -22,7 +30,7 @@ word-break: break-all;
   cursor: pointer;
 }
 .btnCheck{
-  background: #58d68d;
+  background: green;
   color: white;
 }
 .btnClose{

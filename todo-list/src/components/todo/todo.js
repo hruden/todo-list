@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import "./todo.css";
-import { SlCheck } from "react-icons/sl";
-import { SlClose } from "react-icons/sl";
-import { SlPencil } from "react-icons/sl";
+import { SlCheck, SlClose, SlPencil} from "react-icons/sl";
 
-function Todo({ todo, completeTodo, removeTodo, editTodo }) {
+function Todo({ todo, completeTodo, removeTodo, editTodo, theme }) {
   const [isEditing, setIsEditing] = useState(false);
   const [newText, setNewText] = useState(todo.text);
 
@@ -24,7 +22,7 @@ function Todo({ todo, completeTodo, removeTodo, editTodo }) {
 
   return (
     <div
-      className="todo"
+      className={`todo ${theme ? "dark" : "light"}`}
       style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
     >
       {isEditing ? (
