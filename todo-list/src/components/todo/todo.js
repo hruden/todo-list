@@ -28,6 +28,7 @@ function Todo({ todo, completeTodo, removeTodo, editTodo, theme }) {
       {isEditing ? (
         <>
           <input
+            className="editText"
             type="text"
             value={newText}
             onChange={(e) => setNewText(e.target.value)}
