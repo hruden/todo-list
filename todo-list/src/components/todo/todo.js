@@ -22,7 +22,7 @@ function Todo({ todo, completeTodo, removeTodo, editTodo, theme }) {
 
   return (
     <div
-      className={`todo ${theme ? "dark" : "light"}`}
+      className={`todo ${theme ? "light" : "dark"}`}
       style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
     >
       {isEditing ? (

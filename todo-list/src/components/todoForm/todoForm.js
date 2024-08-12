@@ -12,7 +12,7 @@ function TodoForm({ addTodo, theme }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={theme ? "dark" : "light"}>
+    <form onSubmit={handleSubmit} className={theme ? "light" : "dark"}>
       <input
         type="text"
         className="input"

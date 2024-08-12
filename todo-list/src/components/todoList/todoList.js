@@ -18,8 +18,9 @@ function TodoList() {
 
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark");
+      setIsDarkMode(savedTheme === "light");
     }
+    
   }, []);
 
   const saveTodos = (newTodos) => {
@@ -57,16 +58,17 @@ function TodoList() {
   const toggleTheme = () => {
     const newTheme = !isDarkMode;
     setIsDarkMode(newTheme);
-    localStorage.setItem("theme", newTheme ? "dark" : "light");
+    localStorage.setItem("theme", newTheme ? "light" : "dark");
   };
 
   return (
-    <div className={`app ${isDarkMode ? "dark" : "light"}`}>
+    <div className={`app ${isDarkMode ? "light" : "dark"}`}>
       <div className="container">
+        <label id="switch" className="switch">
+            <input type="checkbox" onChange={toggleTheme} id="slider" checked={isDarkMode}/>
+            <span className="slider round"></span>
+        </label>
         <h1>My To-Do List</h1>
-        <button onClick={toggleTheme} className="theme-toggle-button">
-          {isDarkMode ? "Світла тема" : "Темна тема"}
-        </button>
         <div className="todo-list">
           {todos
             .filter((todo) => !todo.isCompleted)
