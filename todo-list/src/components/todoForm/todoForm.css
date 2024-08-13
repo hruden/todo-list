@@ -1,7 +1,7 @@
 .input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #C0C0C0;
+    border: 1px solid var(--border-color);
     border-radius: 5px;
     box-sizing: border-box;
   }
@@ -9,6 +9,6 @@
   outline: none;
 }
 .dark .input{
-  background-color: #333;
-  color: white;
+  background-color: var(--background-todo);
+  color: var(--white);
 }

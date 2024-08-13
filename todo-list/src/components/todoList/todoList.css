@@ -1,15 +1,15 @@
 .app {
   text-align: center;
   font-family: Arial, sans-serif;
-  transition: background-color 0.3s, color 0.3s;
+  transition: background-color var(--time), color var(--time);
 }
 .app.light {
-  background-color: white;
-  color: black;
+  background-color: var(--white);
+  color: var(--black);
 }
 .app.dark {
-  background-color: #121212;
-  color: white;
+  background-color: var(--background-app);
+  color: var(--white);
 }
 
 .theme-toggle-button {
@@ -36,36 +36,36 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: #f1f1f1;
-  border: 1px solid #ccc;
+  background-color: var(--background-accordion);
+  border: 1px solid var(--border-color);
   border-radius: 5px;
   margin-top: 20px;
   margin-bottom: 20px;
 }
 .app.dark .accordion{
-  background-color: #333;
+  background-color: var(--background-todo);
 }
 .accordion-btn {
   background: none;
   border: none;
   font-size: 1.5em;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: color var(--time);
 
 }
 .app.dark .accordion-btn{
-  color: white;
-  transition: color 0.3s;
+  color: var(--white);
+  transition: color var(--time);
 }
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease-out;
+  transition: max-height var(--time) ease-out;
 }
 
 .accordion-content.open {
   max-height: 500px;
-  transition: max-height 0.3s ease-in;
+  transition: max-height var(--time) ease-in;
 }
 
 /* toggle btn */
@@ -88,9 +88,9 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  background-color: var(--border-color);
+  -webkit-transition: var(--time);
+  transition: var(--time);
 }
 
 .slider:before {
@@ -103,27 +103,27 @@
   top: 0;
   bottom: 0;
   margin: auto 0;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  box-shadow: 0 0px 15px #2020203d;
-  background: white url('https://i.ibb.co/FxzBYR9/night.png');
+  -webkit-transition: var(--time);
+  transition: var(--time);
+  box-shadow: 0 0px 15px var(--slider-shadow);
+  background: var(--white) url('https://i.ibb.co/FxzBYR9/night.png');
   background-repeat: no-repeat;
   background-position: center;
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: var(--slider);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px var(--slider);
 }
 
 input:checked + .slider:before {
   -webkit-transform: translateX(24px);
   -ms-transform: translateX(24px);
   transform: translateX(24px);
-  background: white url('https://i.ibb.co/7JfqXxB/sunny.png');
+  background: var(--white) url('https://i.ibb.co/7JfqXxB/sunny.png');
   background-repeat: no-repeat;
   background-position: center;
 }

@@ -5,17 +5,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #C0C0C0;
+  border: 1px solid var(--border-color);
 }
 .todo.dark {
-  background-color: #333;
+  background-color: var(--background-todo);
 }
 .todo input{
   background-color: transparent;
   outline: none;
 }
 .todo.dark input{
-  color: white;
+  color: var(--white);
 }
 .editText{
   font-size:medium;
@@ -33,33 +33,33 @@ margin: 0;
   border-radius: 3px;
   cursor: pointer;
 }
+.btnCheck, .btnClose, .btnPencil{
+  color: var(--white);
+}
 .dark .btnCheck, .dark .btnClose, .dark .btnPencil{
-  color: black;
+  color: var(--black);
 }
 .btnCheck{
-  background-color: #32a852;
-  color: white;
-  transition: background-color 0.3s;
+  background-color: var(--btn-check);
+  transition: background-color var(--time);
 }
 .btnCheck:hover, .btnCheck:focus {
-  background: green;
-  transition: background-color 0.3s;
+  background: var(--btn-check-hover);
+  transition: background-color var(--time);
 }
 .btnClose{
-  background-color: #e74c3c;
-  color: white;
-  transition: background-color 0.3s;
+  background-color: var(--btn-close);
+  transition: background-color var(--time);
 }
 .btnClose:hover, .btnClose:focus{
-  background-color: #d11208;
-  transition: background-color 0.3s;
+  background-color: var(--btn-close-hover);
+  transition: background-color var(--time);
 }
 .btnPencil{
-  background: #ffc100;
-  color: white;
-  transition: background-color 0.3s;
+  background: var(--btn-pencil);
+  transition: background-color var(--time);
 }
 .btnPencil:hover, .btnPencil:focus{
-background-color: 	#ff9a00;
-  transition: background-color 0.3s;
+background-color: var(--btn-pencil-hover);
+  transition: background-color var(--time);
 }

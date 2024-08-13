@@ -1,0 +1,20 @@
+:root{
+    --white: white;
+    --black: black;
+    --background-app: #121212;
+    --background-accordion: #f1f1f1;
+    --border-color: #ccc;
+    --background-todo: #333;
+    /* slider */
+    --slider: #2196f3;
+    --slider-shadow: #2020203d;
+    /* btn */
+    --btn-check: #32a852;
+    --btn-check-hover: green;
+    --btn-close: #e74c3c;
+    --btn-close-hover: #d11208;
+    --btn-pencil: #ffc100;
+    --btn-pencil-hover: #ff9a00;
+    /* time delay */
+    --time: 0.3s;
+}
