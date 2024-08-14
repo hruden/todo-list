@@ -69,7 +69,7 @@ function TodoList() {
             <span className="slider round"></span>
         </label>
         <h1>My To-Do List</h1>
-        <div className="todo-list">
+        <ul className="todo-list">
           {todos
             .filter((todo) => !todo.isCompleted)
             .map((todo) => (
@@ -88,7 +88,7 @@ function TodoList() {
               {isAccordionOpen ? <SlArrowUp /> : <SlArrowDown />}
             </button>
           </div>
-          <div className={`accordion-content ${isAccordionOpen ? "open" : ""}`}>
+          <ul className={`accordion-content ${isAccordionOpen ? "open" : ""}`}>
             {todos
               .filter((todo) => todo.isCompleted)
               .map((todo) => (
@@ -101,9 +101,9 @@ function TodoList() {
                   theme={isDarkMode}
                 />
               ))}
-          </div>
+          </ul>
           <TodoForm addTodo={addTodo} theme={isDarkMode} />
-        </div>
+        </ul>
       </div>
     </div>
   );

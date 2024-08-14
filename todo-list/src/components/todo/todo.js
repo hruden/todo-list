@@ -21,7 +21,7 @@ function Todo({ todo, completeTodo, removeTodo, editTodo, theme }) {
   };
 
   return (
-    <div
+    <li
       className={`todo ${theme ? "light" : "dark"}`}
       style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
     >
@@ -52,7 +52,7 @@ function Todo({ todo, completeTodo, removeTodo, editTodo, theme }) {
           </div>
         </>
       )}
-    </div>
+    </li>
   );
 }
 

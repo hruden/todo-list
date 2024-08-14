@@ -18,3 +18,7 @@
     /* time delay */
     --time: 0.3s;
 }
+ul, li, p{
+    margin: 0;
+    padding: 0;
+}
