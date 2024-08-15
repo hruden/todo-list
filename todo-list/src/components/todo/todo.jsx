@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "./todo.css";
 import { SlCheck, SlClose, SlPencil} from "react-icons/sl";
+import Modal from "../modal/modal";
 
 function Todo({ todo, completeTodo, removeTodo, editTodo, theme }) {
   const [isEditing, setIsEditing] = useState(false);
   const [newText, setNewText] = useState(todo.text);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
 
   const handleEdit = () => {
     setIsEditing(true);
@@ -19,6 +22,9 @@ function Todo({ todo, completeTodo, removeTodo, editTodo, theme }) {
     setIsEditing(false);
     setNewText(todo.text);
   };
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
 
   return (
     <li
@@ -46,10 +52,16 @@ function Todo({ todo, completeTodo, removeTodo, editTodo, theme }) {
             <button className="btnPencil" onClick={handleEdit} disabled={todo.isCompleted}>
               <SlPencil />
             </button>
-            <button className="btnClose" onClick={() => removeTodo(todo.id)}>
+            {/* <button className="btnClose" onClick={() => removeTodo(todo.id)}> */}
+            <button className="btnClose" onClick={openModal}>
               <SlClose />
             </button>
           </div>
+          <Modal isOpen={isModalOpen} closeModal={closeModal}>
+          <h2>{todo.text}</h2>
+          <button onClick={() => removeTodo(todo.id)}>Видалити</button>
+          <button onClick={closeModal}>Скасувати</button>
+          </Modal>
         </>
       )}
     </li>
