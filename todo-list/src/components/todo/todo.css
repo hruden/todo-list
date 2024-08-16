@@ -33,25 +33,25 @@ margin: 0;
   border-radius: 3px;
   cursor: pointer;
 }
-.btnCheck, .btnClose, .btnPencil{
+.btnCheck, .btnClose, .btnPencil, .btnDelete, .btnCancel{
   color: var(--white);
 }
-.dark .btnCheck, .dark .btnClose, .dark .btnPencil{
+.dark .btnCheck, .dark .btnClose, .dark .btnPencil, .dark .btnDelete, .dark .btnCancel{
   color: var(--black);
 }
-.btnCheck{
+.btnCheck, .btnCancel{
   background-color: var(--btn-check);
   transition: background-color var(--time);
 }
-.btnCheck:hover, .btnCheck:focus {
+.btnCheck:hover, .btnCheck:focus, .btnCancel:hover, .btnCancel:focus {
   background: var(--btn-check-hover);
   transition: background-color var(--time);
 }
-.btnClose{
+.btnClose, .btnDelete{
   background-color: var(--btn-close);
   transition: background-color var(--time);
 }
-.btnClose:hover, .btnClose:focus{
+.btnClose:hover, .btnClose:focus, .btnDelete:hover, .btnDelete:focus{
   background-color: var(--btn-close-hover);
   transition: background-color var(--time);
 }
