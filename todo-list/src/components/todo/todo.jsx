@@ -23,9 +23,9 @@ function Todo({ todo, completeTodo, removeTodo, editTodo, theme }) {
     setNewText(todo.text);
   };
 
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   return (
     <li
       className={`todo ${theme ? "light" : "dark"}`}
@@ -52,14 +52,14 @@ function Todo({ todo, completeTodo, removeTodo, editTodo, theme }) {
             <button className="btnPencil" onClick={handleEdit} disabled={todo.isCompleted}>
               <SlPencil />
             </button>
-            <button className="btnClose" onClick={openModal}>
+            <button className="btnClose" onClick={toggleModal}>
               <SlClose />
             </button>
           </div>
-          <Modal isOpen={isModalOpen} closeModal={closeModal}>
+          <Modal isOpen={isModalOpen} closeModal={toggleModal}>
           <h2>{todo.text} ?</h2>
           <button className="btnDelete" onClick={() => removeTodo(todo.id)}>Видалити</button>
-          <button className="btnCancel" onClick={closeModal}>Скасувати</button>
+          <button className="btnCancel" onClick={toggleModal}>Скасувати</button>
           </Modal>
         </>
       )}

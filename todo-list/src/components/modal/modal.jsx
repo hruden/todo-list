@@ -2,19 +2,12 @@ import React, { useEffect } from "react";
 import "./modal.css";
 
 function Modal({ isOpen, closeModal, children }) {
-  useEffect(() => {
-    const handleEscape = (event) => {
-      if (event.key === "Escape") {
-        closeModal();
-      }
-    };
-
-    document.addEventListener("keydown", handleEscape);
-
-    return () => {
-      document.removeEventListener("keydown", handleEscape);
-    };
-  }, [closeModal]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const handleKeyDown = (event) => {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  };
 
   const handleOverlayClick = (event) => {
     if (event.target.classList.contains("modal-overlay")) {
@@ -22,10 +15,23 @@ function Modal({ isOpen, closeModal, children }) {
     }
   };
 
-  if (!isOpen) return null;
+  useEffect(() => {
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+    } else {
+      document.removeEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleKeyDown, isOpen]);
 
   return (
-    <div className="modal-overlay" onClick={handleOverlayClick}>
+    <div
+      className={`modal-overlay ${isOpen ? "open" : ""}`}
+      onClick={handleOverlayClick}
+    >
       <div className="modal-content">
         <button className="modal-close" onClick={closeModal}>
           &times;
