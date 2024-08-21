@@ -6,24 +6,27 @@
   justify-content: space-between;
   align-items: center;
   border: 1px solid var(--border-color);
+  -webkit-box-shadow: 1px 3px 3px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 1px 3px 3px 0px rgba(0,0,0,0.75);
+  box-shadow: 1px 3px 3px 0px rgba(0,0,0,0.75);
 }
 .todo.dark {
   background-color: var(--background-todo);
 }
-.todo input{
+.todo input {
   background-color: transparent;
   outline: none;
 }
-.todo.dark input{
+.todo.dark input {
   color: var(--white);
 }
-.editText{
-  font-size:medium;
+.editText {
+  font-size: medium;
 }
-.todoText{
-max-width: 150px;
-word-break: break-all;
-margin: 0;
+.todoText {
+  max-width: 150px;
+  word-break: break-all;
+  margin: 0;
 }
 
 .todo button {
@@ -33,33 +36,50 @@ margin: 0;
   border-radius: 3px;
   cursor: pointer;
 }
-.btnCheck, .btnClose, .btnPencil, .btnDelete, .btnCancel{
+.btnCheck,
+.btnClose,
+.btnPencil,
+.btnDelete,
+.btnCancel {
   color: var(--white);
 }
-.dark .btnCheck, .dark .btnClose, .dark .btnPencil, .dark .btnDelete, .dark .btnCancel{
+.dark .btnCheck,
+.dark .btnClose,
+.dark .btnPencil,
+.dark .btnDelete,
+.dark .btnCancel {
   color: var(--black);
 }
-.btnCheck, .btnCancel{
+.btnCheck,
+.btnCancel {
   background-color: var(--btn-check);
   transition: background-color var(--time);
 }
-.btnCheck:hover, .btnCheck:focus, .btnCancel:hover, .btnCancel:focus {
+.btnCheck:hover,
+.btnCheck:focus,
+.btnCancel:hover,
+.btnCancel:focus {
   background: var(--btn-check-hover);
   transition: background-color var(--time);
 }
-.btnClose, .btnDelete{
+.btnClose,
+.btnDelete {
   background-color: var(--btn-close);
   transition: background-color var(--time);
 }
-.btnClose:hover, .btnClose:focus, .btnDelete:hover, .btnDelete:focus{
+.btnClose:hover,
+.btnClose:focus,
+.btnDelete:hover,
+.btnDelete:focus {
   background-color: var(--btn-close-hover);
   transition: background-color var(--time);
 }
-.btnPencil{
+.btnPencil {
   background: var(--btn-pencil);
   transition: background-color var(--time);
 }
-.btnPencil:hover, .btnPencil:focus{
-background-color: var(--btn-pencil-hover);
+.btnPencil:hover,
+.btnPencil:focus {
+  background-color: var(--btn-pencil-hover);
   transition: background-color var(--time);
 }

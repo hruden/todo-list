@@ -85,6 +85,7 @@ function TodoList() {
                 theme={isDarkMode}
               />
             ))}
+          <TodoForm addTodo={addTodo} theme={isDarkMode} />
           <div className="accordion" onClick={toggleAccordion}>
             <p>Виконані завдання</p>
             <button className="accordion-btn">
@@ -105,7 +106,6 @@ function TodoList() {
                 />
               ))}
           </ul>
-          <TodoForm addTodo={addTodo} theme={isDarkMode} />
         </ul>
       </div>
     </div>
