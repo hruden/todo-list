@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 import "./todoList.css";
 import Todo from "../todo/todo";
 import TodoForm from "../todoForm/todoForm";
+import Accordion from "../accordion/accordion";
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
-  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
@@ -50,10 +49,6 @@ function TodoList() {
     );
   };
 
-  const toggleAccordion = () => {
-    setIsAccordionOpen(!isAccordionOpen);
-  };
-
   const toggleTheme = () => {
     const newTheme = !isDarkMode;
     setIsDarkMode(newTheme);
@@ -86,26 +81,12 @@ function TodoList() {
               />
             ))}
           <TodoForm addTodo={addTodo} theme={isDarkMode} />
-          <div className="accordion" onClick={toggleAccordion}>
-            <p>Виконані завдання</p>
-            <button className="accordion-btn">
-              {isAccordionOpen ? <SlArrowUp /> : <SlArrowDown />}
-            </button>
-          </div>
-          <ul className={`accordion-content ${isAccordionOpen ? "open" : ""}`}>
-            {todos
-              .filter((todo) => todo.isCompleted)
-              .map((todo) => (
-                <Todo
-                  key={todo.id}
-                  todo={todo}
-                  completeTodo={completeTodo}
-                  removeTodo={removeTodo}
-                  editTodo={editTodo}
-                  theme={isDarkMode}
-                />
-              ))}
-          </ul>
+          <Accordion
+            todos={todos}
+            completeTodo={completeTodo}
+            removeTodo={removeTodo}
+            theme={isDarkMode}
+          />
         </ul>
       </div>
     </div>

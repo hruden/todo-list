@@ -1,0 +1,40 @@
+.accordion {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--background-accordion);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .app.dark .accordion{
+    background-color: var(--background-todo);
+  }
+  .accordion-btn {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: color var(--time);
+  
+  }
+  .app.dark .accordion-btn{
+    color: var(--white);
+    transition: color var(--time);
+  }
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 3px;
+    transition: max-height var(--time) ease-out;
+  }
+  
+  .accordion-content.open {
+    max-height: 500px;
+    padding: 0 3px;
+    overflow-y: auto;
+    transition: max-height var(--time) ease-in;
+  }
