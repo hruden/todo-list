@@ -12,22 +12,28 @@
   scale: 1;
   transition: scale var(--time)
 }
+
 .todo:hover, .todo:focus{
   scale: 1.02;
 }
+
 .todo.dark {
   background-color: var(--background-todo);
 }
+
 .todo input {
   background-color: transparent;
   outline: none;
 }
+
 .todo.dark input {
   color: var(--white);
 }
+
 .editText {
   font-size: medium;
 }
+
 .todoText {
   max-width: 150px;
   word-break: break-all;
@@ -41,6 +47,7 @@
   border-radius: 3px;
   cursor: pointer;
 }
+
 .btnCheck,
 .btnClose,
 .btnPencil,
@@ -48,6 +55,7 @@
 .btnCancel {
   color: var(--white);
 }
+
 .dark .btnCheck,
 .dark .btnClose,
 .dark .btnPencil,
@@ -55,11 +63,13 @@
 .dark .btnCancel {
   color: var(--black);
 }
+
 .btnCheck,
 .btnCancel {
   background-color: var(--btn-check);
   transition: background-color var(--time);
 }
+
 .btnCheck:hover,
 .btnCheck:focus,
 .btnCancel:hover,
@@ -67,11 +77,13 @@
   background: var(--btn-check-hover);
   transition: background-color var(--time);
 }
+
 .btnClose,
 .btnDelete {
   background-color: var(--btn-close);
   transition: background-color var(--time);
 }
+
 .btnClose:hover,
 .btnClose:focus,
 .btnDelete:hover,
@@ -79,10 +91,12 @@
   background-color: var(--btn-close-hover);
   transition: background-color var(--time);
 }
+
 .btnPencil {
   background: var(--btn-pencil);
   transition: background-color var(--time);
 }
+
 .btnPencil:hover,
 .btnPencil:focus {
   background-color: var(--btn-pencil-hover);
