@@ -4,6 +4,7 @@ import "./todoList.css";
 import Todo from "../todo/todo";
 import TodoForm from "../todoForm/todoForm";
 import Accordion from "../accordion/accordion";
+import Footer from "../footer/footer";
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
@@ -88,6 +89,7 @@ function TodoList() {
             theme={isDarkMode}
           />
         </ul>
+        <Footer/>
       </div>
     </div>
   );

@@ -1,0 +1,19 @@
+
+.footer {
+    background-color: var(--background-accordion);
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    border-top: 1px solid var(--border-color);
+    transition: background-color var(--time), color var(--time);
+  }
+  .dark .footer{
+    background-color: var(--background-todo)
+  }
+  
+  .footer p {
+    margin: 0;
+    font-size: 14px;
+  }
