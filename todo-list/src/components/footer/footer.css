@@ -17,3 +17,12 @@
     margin: 0;
     font-size: 14px;
   }
+.contacts{
+  cursor: pointer;
+  transition: color var(--time);
+
+}
+.contacts:hover, .contacts:focus{
+  color: var(--slider);
+  transition: color var(--time);
+}

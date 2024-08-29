@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <p>© 2024 My Todo List App. All rights reserved.</p>
-      <p onClick={toggleModal}>My contacts</p>
+      <p className="contacts" onClick={toggleModal}>My contacts</p>
       <Modal isOpen={isModalOpen} closeModal={toggleModal}>
         <ul>
           <li><a href="tel:+38(095)496-72-44" target="_blank" rel="noreferrer">+38 (095) 496-72-44</a></li>
