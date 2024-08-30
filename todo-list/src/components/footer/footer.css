@@ -26,3 +26,13 @@
   color: var(--slider);
   transition: color var(--time);
 }
+.contactItem{
+  list-style-type: none;
+}
+.contactItem a {
+  color: var(--black);
+  text-Decoration: none;
+}
+.dark .contactItem a{
+  color: var(--white);
+}
