@@ -22,7 +22,7 @@ const Footer = () => {
         My contacts
       </p>
       <Modal isOpen={isModalOpen} closeModal={toggleModal}>
-        <ul>
+        <ul className="contactList">
           <li className="contactItem">
             <a href="tel:+38(095)496-72-44" target="_blank" rel="noreferrer">
               <LuPhone /> +38 (095) 496-72-44
