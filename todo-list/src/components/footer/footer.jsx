@@ -24,12 +24,12 @@ const Footer = () => {
       <Modal isOpen={isModalOpen} closeModal={toggleModal}>
         <ul className="contactList">
           <li className="contactItem">
-            <a href="tel:+38(095)496-72-44" target="_blank" rel="noreferrer">
+            <a className="socLink" href="tel:+38(095)496-72-44" target="_blank" rel="noreferrer">
               <LuPhone /> +38 (095) 496-72-44
             </a>
           </li>
           <li className="contactItem">
-            <a
+            <a className="socLink"
               href="mailto:hrigoriev.ihor@gmail.com"
               target="_blank"
               rel="noreferrer"
@@ -38,12 +38,12 @@ const Footer = () => {
             </a>
           </li>
           <li className="contactItem">
-            <a href="https://t.me/igor_ban" target="_blank" rel="noreferrer">
+            <a className="socLink" href="https://t.me/igor_ban" target="_blank" rel="noreferrer">
               <LiaTelegram /> Telegram
             </a>
           </li>
           <li className="contactItem">
-            <a
+            <a className="socLink"
               href="https://www.linkedin.com/in/ihor-hryhoriev-830062278/"
               target="_blank"
               rel="noreferrer"
@@ -52,7 +52,7 @@ const Footer = () => {
             </a>
           </li>
           <li className="contactItem">
-            <a
+            <a className="socLink"
               href="https://github.com/hruden"
               target="_blank"
               rel="noreferrer"
@@ -61,7 +61,7 @@ const Footer = () => {
             </a>
           </li>
           <li className="contactItem">
-            <a
+            <a className="socLink"
               href="https://goo.gl/maps/BDQaWE5JD5HgARF57"
               target="_blank"
               rel="noreferrer"

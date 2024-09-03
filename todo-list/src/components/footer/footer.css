@@ -3,7 +3,7 @@
     background-color: var(--background-accordion);
     text-align: center;
     padding: 10px 0;
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     bottom: 0;
     border-top: 1px solid var(--border-color);
@@ -26,13 +26,27 @@
   color: var(--slider);
   transition: color var(--time);
 }
+.contactList{
+  padding: 10px 30px;
+}
 .contactItem{
   list-style-type: none;
 }
-.contactItem a {
+.socLink{
+  display: flex;
+  gap: 10px;
+  height: 30px;
   color: var(--black);
   text-Decoration: none;
+  justify-content: left;
+  align-items: center;
+  cursor: pointer;
+  transition: color var(--time);
 }
-.dark .contactItem a{
+.dark .socLink{
   color: var(--white);
+}
+.socLink:hover, .socLink:focus{
+  color: var(--slider);
+  transition: color var(--time);
 }
