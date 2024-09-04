@@ -14,11 +14,11 @@ const Accordion = ({ todos, completeTodo, removeTodo, theme}) => {
     <div>
       <div className="accordion" onClick={toggleAccordion}>
         <p>Виконані завдання</p>
-        <button className="accordion-btn">
+        <button className="accordionBtn">
           {isAccordionOpen ? <SlArrowUp /> : <SlArrowDown />}
         </button>
       </div>
-      <ul className={`accordion-content ${isAccordionOpen ? "open" : ""}`}>
+      <ul className={`accordionContent ${isAccordionOpen ? "open" : ""}`}>
         {todos
           .filter((todo) => todo.isCompleted)
           .map((todo) => (

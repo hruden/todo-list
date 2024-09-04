@@ -13,7 +13,7 @@
   .app.dark .accordion{
     background-color: var(--background-todo);
   }
-  .accordion-btn {
+  .accordionBtn {
     background: none;
     border: none;
     font-size: 1.5em;
@@ -21,18 +21,18 @@
     transition: color var(--time);
   
   }
-  .app.dark .accordion-btn{
+  .app.dark .accordionBtn{
     color: var(--white);
     transition: color var(--time);
   }
-  .accordion-content {
+  .accordionContent {
     max-height: 0;
     overflow: hidden;
     padding: 0 3px;
     transition: max-height var(--time) ease-out;
   }
   
-  .accordion-content.open {
+  .accordionContent.open {
     max-height: 500px;
     padding: 0 3px;
     overflow-y: auto;
