@@ -29,11 +29,11 @@ function Modal({ isOpen, closeModal, children }) {
 
   return (
     <div
-      className={`modal-overlay ${isOpen ? "open" : ""}`}
+      className={`modalOverlay ${isOpen ? "open" : ""}`}
       onClick={handleOverlayClick}
     >
-      <div className="modal-content">
-        <button className="modal-close" onClick={closeModal}>
+      <div className="modalContent">
+        <button className="modalClose" onClick={closeModal}>
           &times;
         </button>
         {children}

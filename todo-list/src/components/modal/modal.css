@@ -1,4 +1,4 @@
-.modal-overlay {
+.modalOverlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -14,12 +14,12 @@
     z-index: 1000;
   }
 
-  .modal-overlay.open {
+  .modalOverlay.open {
     opacity: 1;
     visibility: visible;
   }
     
-  .modal-content {
+  .modalContent {
     background-color: var(--white);
     padding: 20px;
     border-radius: 8px;
@@ -31,16 +31,16 @@
     transition: transform var(--time) ease;
   }
 
-  .modal-overlay.open .modal-content {
+  .modalOverlay.open .modalContent {
     transform: rotate(0deg) scale(1);
   }
 
-  .dark .modal-content{
+  .dark .modalContent{
     background-color: var(--background-todo);
     border: solid 1px var(--border-color);
   }
 
-  .modal-close {
+  .modalClose {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -52,15 +52,15 @@
     transition: color var(--time);
   }
 
-  .modal-close:hover, .modal-close:focus{
+  .modalClose:hover, .modalClose:focus{
     color: var(--slider);
     transition: color var(--time);
   }
 
-  .dark .modal-close{
+  .dark .modalClose{
     color: var(--white);
   }
 
-  .dark .modal-close:hover, .modal-close:focus{
+  .dark .modalClose:hover, .modalClose:focus{
     color: var(--slider);
   }
