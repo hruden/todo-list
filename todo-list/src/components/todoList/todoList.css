@@ -11,13 +11,6 @@
   background-color: var(--background-app);
   color: var(--white);
 }
-
-.theme-toggle-button {
-  margin: 10px 0;
-  padding: 8px 12px;
-  cursor: pointer;
-}
-
 .container {
   display: flex;
   justify-content: center;
