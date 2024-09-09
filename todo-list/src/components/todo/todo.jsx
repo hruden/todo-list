@@ -34,32 +34,32 @@ function Todo({ todo, completeTodo, removeTodo, editTodo, theme }) {
       {isEditing ? (
         <>
           <input
-            className="editText"
+            className="edit-text"
             type="text"
             value={newText}
             onChange={(e) => setNewText(e.target.value)}
           />
-          <button className="btnCheck" onClick={handleSave}><SlCheck /></button>
-          <button className="btnClose" onClick={handleCancel}><SlClose /></button>
+          <button className="btn-check" onClick={handleSave}><SlCheck /></button>
+          <button className="btn-close" onClick={handleCancel}><SlClose /></button>
         </>
       ) : (
         <>
-          <p className="todoText">{todo.text}</p>
+          <p className="todo-text">{todo.text}</p>
           <div>
-            <button className="btnCheck" onClick={() => completeTodo(todo.id)}>
+            <button className="btn-check" onClick={() => completeTodo(todo.id)}>
               <SlCheck />
             </button>
-            <button className="btnPencil" onClick={handleEdit} disabled={todo.isCompleted}>
+            <button className="btn-pencil" onClick={handleEdit} disabled={todo.isCompleted}>
               <SlPencil />
             </button>
-            <button className="btnClose" onClick={toggleModal}>
+            <button className="btn-close" onClick={toggleModal}>
               <SlClose />
             </button>
           </div>
           <Modal isOpen={isModalOpen} closeModal={toggleModal}>
           <h2>{todo.text} ?</h2>
-          <button className="btnDelete" onClick={() => removeTodo(todo.id)}>Видалити</button>
-          <button className="btnCancel" onClick={toggleModal}>Скасувати</button>
+          <button className="btn-delete" onClick={() => removeTodo(todo.id)}>Видалити</button>
+          <button className="btn-cancel" onClick={toggleModal}>Скасувати</button>
           </Modal>
         </>
       )}

@@ -30,11 +30,11 @@
   color: var(--white);
 }
 
-.editText {
+.edit-text {
   font-size: medium;
 }
 
-.todoText {
+.todo-text {
   max-width: 150px;
   word-break: break-all;
   margin: 0;
@@ -48,57 +48,57 @@
   cursor: pointer;
 }
 
-.btnCheck,
-.btnClose,
-.btnPencil,
-.btnDelete,
-.btnCancel {
+.btn-check,
+.btn-close,
+.btn-pencil,
+.btn-delete,
+.btn-cancel {
   color: var(--white);
 }
 
-.dark .btnCheck,
-.dark .btnClose,
-.dark .btnPencil,
-.dark .btnDelete,
-.dark .btnCancel {
+.dark .btn-check,
+.dark .btn-close,
+.dark .btn-pencil,
+.dark .btn-delete,
+.dark .btn-cancel {
   color: var(--black);
 }
 
-.btnCheck,
-.btnCancel {
+.btn-check,
+.btn-cancel {
   background-color: var(--btn-check);
   transition: background-color var(--time);
 }
 
-.btnCheck:hover,
-.btnCheck:focus,
-.btnCancel:hover,
-.btnCancel:focus {
+.btn-check:hover,
+.btn-check:focus,
+.btn-cancel:hover,
+.btn-cancel:focus {
   background: var(--btn-check-hover);
   transition: background-color var(--time);
 }
 
-.btnClose,
-.btnDelete {
+.btn-close,
+.btn-delete {
   background-color: var(--btn-close);
   transition: background-color var(--time);
 }
 
-.btnClose:hover,
-.btnClose:focus,
-.btnDelete:hover,
-.btnDelete:focus {
+.btn-close:hover,
+.btn-close:focus,
+.btn-delete:hover,
+.btn-delete:focus {
   background-color: var(--btn-close-hover);
   transition: background-color var(--time);
 }
 
-.btnPencil {
+.btn-pencil {
   background: var(--btn-pencil);
   transition: background-color var(--time);
 }
 
-.btnPencil:hover,
-.btnPencil:focus {
+.btn-pencil:hover,
+.btn-pencil:focus {
   background-color: var(--btn-pencil-hover);
   transition: background-color var(--time);
 }
